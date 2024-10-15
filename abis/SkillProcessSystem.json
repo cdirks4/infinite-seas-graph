@@ -1,0 +1,952 @@
+[
+  {
+    "type": "function",
+    "name": "_msgSender",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "sender",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "_msgValue",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "value",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "pure"
+  },
+  {
+    "type": "function",
+    "name": "_world",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "skillProcessCompleteCreation",
+    "inputs": [
+      {
+        "name": "skillType",
+        "type": "uint8",
+        "internalType": "uint8"
+      },
+      {
+        "name": "playerId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "sequenceNumber",
+        "type": "uint8",
+        "internalType": "uint8"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "skillProcessCompleteProduction",
+    "inputs": [
+      {
+        "name": "skillType",
+        "type": "uint8",
+        "internalType": "uint8"
+      },
+      {
+        "name": "playerId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "sequenceNumber",
+        "type": "uint8",
+        "internalType": "uint8"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "skillProcessCompleteShipProduction",
+    "inputs": [
+      {
+        "name": "skillType",
+        "type": "uint8",
+        "internalType": "uint8"
+      },
+      {
+        "name": "playerId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "sequenceNumber",
+        "type": "uint8",
+        "internalType": "uint8"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "supportsInterface",
+    "inputs": [
+      {
+        "name": "interfaceId",
+        "type": "bytes4",
+        "internalType": "bytes4"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "pure"
+  },
+  {
+    "type": "event",
+    "name": "CreationProcessCompletedEvent",
+    "inputs": [
+      {
+        "name": "skillType",
+        "type": "uint8",
+        "indexed": true,
+        "internalType": "uint8"
+      },
+      {
+        "name": "playerId",
+        "type": "uint256",
+        "indexed": true,
+        "internalType": "uint256"
+      },
+      {
+        "name": "sequenceNumber",
+        "type": "uint8",
+        "indexed": true,
+        "internalType": "uint8"
+      },
+      {
+        "name": "itemId",
+        "type": "uint32",
+        "indexed": false,
+        "internalType": "uint32"
+      },
+      {
+        "name": "startedAt",
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64"
+      },
+      {
+        "name": "creationTime",
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64"
+      },
+      {
+        "name": "endedAt",
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64"
+      },
+      {
+        "name": "successful",
+        "type": "bool",
+        "indexed": false,
+        "internalType": "bool"
+      },
+      {
+        "name": "quantity",
+        "type": "uint32",
+        "indexed": false,
+        "internalType": "uint32"
+      },
+      {
+        "name": "experienceGained",
+        "type": "uint32",
+        "indexed": false,
+        "internalType": "uint32"
+      },
+      {
+        "name": "newLevel",
+        "type": "uint16",
+        "indexed": false,
+        "internalType": "uint16"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "ProductionProcessCompletedEvent",
+    "inputs": [
+      {
+        "name": "skillType",
+        "type": "uint8",
+        "indexed": true,
+        "internalType": "uint8"
+      },
+      {
+        "name": "playerId",
+        "type": "uint256",
+        "indexed": true,
+        "internalType": "uint256"
+      },
+      {
+        "name": "sequenceNumber",
+        "type": "uint8",
+        "indexed": true,
+        "internalType": "uint8"
+      },
+      {
+        "name": "itemId",
+        "type": "uint32",
+        "indexed": false,
+        "internalType": "uint32"
+      },
+      {
+        "name": "startedAt",
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64"
+      },
+      {
+        "name": "creationTime",
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64"
+      },
+      {
+        "name": "endedAt",
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64"
+      },
+      {
+        "name": "successful",
+        "type": "bool",
+        "indexed": false,
+        "internalType": "bool"
+      },
+      {
+        "name": "quantity",
+        "type": "uint32",
+        "indexed": false,
+        "internalType": "uint32"
+      },
+      {
+        "name": "experienceGained",
+        "type": "uint32",
+        "indexed": false,
+        "internalType": "uint32"
+      },
+      {
+        "name": "newLevel",
+        "type": "uint16",
+        "indexed": false,
+        "internalType": "uint16"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "ShipProductionProcessCompletedEvent",
+    "inputs": [
+      {
+        "name": "skillType",
+        "type": "uint8",
+        "indexed": true,
+        "internalType": "uint8"
+      },
+      {
+        "name": "playerId",
+        "type": "uint256",
+        "indexed": true,
+        "internalType": "uint256"
+      },
+      {
+        "name": "sequenceNumber",
+        "type": "uint8",
+        "indexed": true,
+        "internalType": "uint8"
+      },
+      {
+        "name": "itemId",
+        "type": "uint32",
+        "indexed": false,
+        "internalType": "uint32"
+      },
+      {
+        "name": "startedAt",
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64"
+      },
+      {
+        "name": "creationTime",
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64"
+      },
+      {
+        "name": "endedAt",
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64"
+      },
+      {
+        "name": "successful",
+        "type": "bool",
+        "indexed": false,
+        "internalType": "bool"
+      },
+      {
+        "name": "quantity",
+        "type": "uint32",
+        "indexed": false,
+        "internalType": "uint32"
+      },
+      {
+        "name": "experienceGained",
+        "type": "uint32",
+        "indexed": false,
+        "internalType": "uint32"
+      },
+      {
+        "name": "newLevel",
+        "type": "uint16",
+        "indexed": false,
+        "internalType": "uint16"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "Store_SetRecord",
+    "inputs": [
+      {
+        "name": "tableId",
+        "type": "bytes32",
+        "indexed": true,
+        "internalType": "ResourceId"
+      },
+      {
+        "name": "keyTuple",
+        "type": "bytes32[]",
+        "indexed": false,
+        "internalType": "bytes32[]"
+      },
+      {
+        "name": "staticData",
+        "type": "bytes",
+        "indexed": false,
+        "internalType": "bytes"
+      },
+      {
+        "name": "encodedLengths",
+        "type": "bytes32",
+        "indexed": false,
+        "internalType": "EncodedLengths"
+      },
+      {
+        "name": "dynamicData",
+        "type": "bytes",
+        "indexed": false,
+        "internalType": "bytes"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "error",
+    "name": "AccountPlayerAlreadyExists",
+    "inputs": [
+      {
+        "name": "accountAddress",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "AccountPlayerDoesNotExist",
+    "inputs": [
+      {
+        "name": "accountAddress",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ArticleAlreadyExists",
+    "inputs": [
+      {
+        "name": "id",
+        "type": "uint64",
+        "internalType": "uint64"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ArticleDoesNotExist",
+    "inputs": [
+      {
+        "name": "id",
+        "type": "uint64",
+        "internalType": "uint64"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "CounterAlreadyExists",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "CounterDoesNotExist",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "EnergyTokenAlreadyExists",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "EnergyTokenDoesNotExist",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ExperienceTableAlreadyExists",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ExperienceTableDoesNotExist",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ExperienceTableNotInitialized",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "GetItemIdQuantityPairError",
+    "inputs": [
+      {
+        "name": "itemId",
+        "type": "uint32",
+        "internalType": "uint32"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "IncorrectItemId",
+    "inputs": [
+      {
+        "name": "expectedItemId",
+        "type": "uint32",
+        "internalType": "uint32"
+      },
+      {
+        "name": "actualItemId",
+        "type": "uint32",
+        "internalType": "uint32"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "IncorrectSkillType",
+    "inputs": [
+      {
+        "name": "expectedSkillType",
+        "type": "uint8",
+        "internalType": "uint8"
+      },
+      {
+        "name": "actualSkillType",
+        "type": "uint8",
+        "internalType": "uint8"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "InvalidPlayerId",
+    "inputs": [
+      {
+        "name": "expectedPlayerId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "actualPlayerId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ItemAlreadyExists",
+    "inputs": [
+      {
+        "name": "itemId",
+        "type": "uint32",
+        "internalType": "uint32"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ItemCreationAlreadyExists",
+    "inputs": [
+      {
+        "name": "itemCreationIdSkillType",
+        "type": "uint8",
+        "internalType": "uint8"
+      },
+      {
+        "name": "itemCreationIdItemId",
+        "type": "uint32",
+        "internalType": "uint32"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ItemCreationDoesNotExist",
+    "inputs": [
+      {
+        "name": "itemCreationIdSkillType",
+        "type": "uint8",
+        "internalType": "uint8"
+      },
+      {
+        "name": "itemCreationIdItemId",
+        "type": "uint32",
+        "internalType": "uint32"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ItemDoesNotExist",
+    "inputs": [
+      {
+        "name": "itemId",
+        "type": "uint32",
+        "internalType": "uint32"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ItemIdIsNotShip",
+    "inputs": [
+      {
+        "name": "itemId",
+        "type": "uint32",
+        "internalType": "uint32"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ItemProducesIndividuals",
+    "inputs": [
+      {
+        "name": "itemId",
+        "type": "uint32",
+        "internalType": "uint32"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ItemProductionAlreadyExists",
+    "inputs": [
+      {
+        "name": "itemProductionIdSkillType",
+        "type": "uint8",
+        "internalType": "uint8"
+      },
+      {
+        "name": "itemProductionIdItemId",
+        "type": "uint32",
+        "internalType": "uint32"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ItemProductionDoesNotExist",
+    "inputs": [
+      {
+        "name": "itemProductionIdSkillType",
+        "type": "uint8",
+        "internalType": "uint8"
+      },
+      {
+        "name": "itemProductionIdItemId",
+        "type": "uint32",
+        "internalType": "uint32"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "MapAlreadyExists",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "MapDoesNotExist",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "PlayerAlreadyExists",
+    "inputs": [
+      {
+        "name": "id",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "PlayerDoesNotExist",
+    "inputs": [
+      {
+        "name": "id",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "PositionAlreadyExists",
+    "inputs": [
+      {
+        "name": "player",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "PositionDoesNotExist",
+    "inputs": [
+      {
+        "name": "player",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ProcessNotStarted",
+    "inputs": [
+      {
+        "name": "itemId",
+        "type": "uint32",
+        "internalType": "uint32"
+      },
+      {
+        "name": "completed",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ProcessNotStarted",
+    "inputs": [
+      {
+        "name": "itemId",
+        "type": "uint32",
+        "internalType": "uint32"
+      },
+      {
+        "name": "completed",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "RequireNamespaceOwner",
+    "inputs": [
+      {
+        "name": "caller",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "requiredOwner",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "RosterAlreadyExists",
+    "inputs": [
+      {
+        "name": "playerId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "sequenceNumber",
+        "type": "uint32",
+        "internalType": "uint32"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "RosterDoesNotExist",
+    "inputs": [
+      {
+        "name": "playerId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "sequenceNumber",
+        "type": "uint32",
+        "internalType": "uint32"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ShipAlreadyExists",
+    "inputs": [
+      {
+        "name": "id",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ShipBattleAlreadyExists",
+    "inputs": [
+      {
+        "name": "id",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ShipBattleDoesNotExist",
+    "inputs": [
+      {
+        "name": "id",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ShipDoesNotExist",
+    "inputs": [
+      {
+        "name": "id",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "SkillProcessAlreadyExists",
+    "inputs": [
+      {
+        "name": "skillProcessIdSkillType",
+        "type": "uint8",
+        "internalType": "uint8"
+      },
+      {
+        "name": "skillProcessIdPlayerId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "skillProcessIdSequenceNumber",
+        "type": "uint8",
+        "internalType": "uint8"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "SkillProcessDoesNotExist",
+    "inputs": [
+      {
+        "name": "skillProcessIdSkillType",
+        "type": "uint8",
+        "internalType": "uint8"
+      },
+      {
+        "name": "skillProcessIdPlayerId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "skillProcessIdSequenceNumber",
+        "type": "uint8",
+        "internalType": "uint8"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "Slice_OutOfBounds",
+    "inputs": [
+      {
+        "name": "data",
+        "type": "bytes",
+        "internalType": "bytes"
+      },
+      {
+        "name": "start",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "end",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "StillInProgress",
+    "inputs": [
+      {
+        "name": "currentTime",
+        "type": "uint64",
+        "internalType": "uint64"
+      },
+      {
+        "name": "expectedCompletionTime",
+        "type": "uint64",
+        "internalType": "uint64"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "StillInProgress",
+    "inputs": [
+      {
+        "name": "currentTime",
+        "type": "uint64",
+        "internalType": "uint64"
+      },
+      {
+        "name": "expectedCompletionTime",
+        "type": "uint64",
+        "internalType": "uint64"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "StillInProgress",
+    "inputs": [
+      {
+        "name": "currentTime",
+        "type": "uint64",
+        "internalType": "uint64"
+      },
+      {
+        "name": "expectedCompletionTime",
+        "type": "uint64",
+        "internalType": "uint64"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "TerrainAlreadyExists",
+    "inputs": [
+      {
+        "name": "x",
+        "type": "uint32",
+        "internalType": "uint32"
+      },
+      {
+        "name": "y",
+        "type": "uint32",
+        "internalType": "uint32"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "TerrainDoesNotExist",
+    "inputs": [
+      {
+        "name": "x",
+        "type": "uint32",
+        "internalType": "uint32"
+      },
+      {
+        "name": "y",
+        "type": "uint32",
+        "internalType": "uint32"
+      }
+    ]
+  }
+]
